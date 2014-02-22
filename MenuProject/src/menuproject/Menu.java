@@ -7,6 +7,8 @@
 package menuproject;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -17,13 +19,19 @@ public class Menu {
     private String text;
     private boolean isLeaf;
     private boolean isRoot;
+    private ArrayList<Menu> menus;
+
     public Menu() {
         isRoot = true;
+    	isLeaf = false;
+    	menus = new ArrayList<Menu>();
+    	sc = new Scanner(System.in);
     }
     public Menu(String name){
         this.text = name;
         isLeaf = false;
         isRoot = false;
+        menus = new ArrayList<Menu>();
     }
     
     public Menu(String name, ActionListener action){
@@ -33,6 +41,14 @@ public class Menu {
         isRoot = false;
     }
     public void addSubMenu(Menu submenu){
+    	try {
+            if (isLeaf)
+                this.isLeaf = false;
+            if (submenu != null)
+                this.menus.add(submenu);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
     
     public void run(){
