@@ -58,4 +58,20 @@ public class Menu {
     	for (int i = 0; i < submenus.size(); i++)
     		System.out.println((i + 1) + ") " + submenus.get(i).text);
     }
+    private int InputSelection(ArrayList<Menu> submenus){
+    	sc = new Scanner(System.in);
+    	String option;
+    	int retVal = -1;
+    	option = sc.nextLine();
+    	for (int i = 0; i < option.length(); i++) {
+    		if (Character.isDigit(option.cahrAt(i)))
+    			if (Integer.parseInt(option) > 0 && Integer.parseInt(option) <= submenus.size())
+    				retVal = Integer.parseInt(option);
+    			else 
+    				return -1;
+    		else 
+    			return -1;
+    	}
+    	return retVal;
+    }
 }
