@@ -61,7 +61,7 @@ public class Menu {
             int option;
             ArrayList<Menu> tmp = menus;
             while (true) {
-                System.out.println("Seleccione un modulo:");
+                System.out.println("Seleccione un modulo:\nLos JOptionPane del modulo \"Numeros\" posiblemente se muestren detras de la ventana.");
                 print(tmp);
                 option = InputSelection(tmp);
                 while (option < 0 || option >= tmp.size()) {
