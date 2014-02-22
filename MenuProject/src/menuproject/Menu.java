@@ -33,7 +33,6 @@ public class Menu {
         isRoot = false;
         menus = new ArrayList<Menu>();
     }
-    
     public Menu(String name, ActionListener action){
         this.text = name;
         this.action = action;
@@ -50,10 +49,13 @@ public class Menu {
             ex.printStackTrace();
         }
     }
-    
     public void run(){
         while (true){
         
         }
+    }
+    private void print(ArrayList<Menu> submenus){
+    	for (int i = 0; i < submenus.size(); i++)
+    		System.out.println((i + 1) + ") " + submenus.get(i).text);
     }
 }
